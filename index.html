@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Sensor Dashboard - UCD & Data Viz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Pemantauan Lingkungan IoT</h1>
+        <p>Implementasi IMK: Mengurangi Beban Kognitif & Visualisasi Interaktif</p>
+    </header>
+    
+    <main>
+        <!-- 1. OVERVIEW FIRST -->
+        <section id="overview" class="card">
+            <h2>Overview (Ringkasan Data)</h2>
+            <p>Melihat kondisi sistem secara sekilas dengan <em>Preattentive Visual Attributes</em>.</p>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <h3>Node 1 (Sensor SHT31)</h3>
+                    <div class="status-ok">Suhu Normal (28°C)</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Node 2 (Sensor LDR)</h3>
+                    <div class="status-warning">Cahaya Redup (150 Lux)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ZOOM & FILTER -->
+        <section id="filter" class="card">
+            <h2>Zoom & Filter</h2>
+            <p>Fokus pada metrik tertentu tanpa membebani <em>working memory</em> pengguna.</p>
+            <div class="filter-controls">
+                <label for="sensor-select">Pilih Tampilan Data:</label>
+                <select id="sensor-select">
+                    <option value="all">Tampilkan Semua Sensor</option>
+                    <option value="sht31">Hanya SHT31 (Suhu)</option>
+                    <option value="ldr">Hanya LDR (Intensitas Cahaya)</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- 3. DETAILS ON DEMAND -->
+        <section id="details" class="card">
+            <h2>Details-on-Demand (Grafik Tanpa Chartjunk)</h2>
+            <p>Arahkan kursor ke grafik untuk melihat rincian detail data sensor.</p>
+            <div class="chart-container">
+                <canvas id="sensorChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
